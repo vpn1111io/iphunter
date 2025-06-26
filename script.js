@@ -37,7 +37,7 @@ ipForm.addEventListener('submit', async (e) => {
   const t = translations[currentLang];
   const ip = ipInput.value.trim();
   if (!ip) return showError(t.errorEmpty);
-  if (!/^((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.|$)){4}$/.test(ip)) return showError(t.errorInvalid);
+  if (!/^\d{1,3}(\.\d{1,3}){3}$/.test(ip))
 
   errorContainer.classList.add('hidden');
   resultContainer.classList.add('hidden');
