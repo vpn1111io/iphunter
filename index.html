@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IP Sorgu Sistemi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+</head>
+<body class="p-6">
+  <div class="flex justify-between items-center mb-4">
+    <h1 class="text-2xl font-bold text-primary">IP Sorgulama</h1>
+    <select id="languageSelect" class="bg-[#252525] border border-[#333] text-white px-3 py-1 rounded">
+      <option value="tr">Türkçe</option>
+      <option value="en">English</option>
+      <option value="de">Deutsch</option>
+      <option value="ru">Русский</option>
+      <option value="fr">Français</option>
+    </select>
+  </div>
+
+  <form id="ipForm" class="flex gap-4 mb-6">
+    <input id="ipInput" type="text" placeholder="IP adresi girin..." class="px-4 py-2 w-full bg-[#252525] border border-[#333] text-white rounded" />
+    <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded">Sorgula</button>
+  </form>
+
+  <div class="flex justify-between mb-4">
+    <div class="flex items-center gap-4">
+      <button id="copyBtn" class="bg-[#333] hover:bg-[#444] text-white px-4 py-2 rounded">Kopyala</button>
+      <button id="clearBtn" class="bg-[#333] hover:bg-[#444] text-white px-4 py-2 rounded">Temizle</button>
+    </div>
+    <div class="flex items-center gap-2">
+      <label class="text-sm">Format:</label>
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" class="sr-only peer" id="formatToggle" />
+        <div class="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+        <span class="ml-2 text-sm text-white">Pretty / Raw</span>
+      </label>
+    </div>
+  </div>
+
+  <div id="loadingIndicator" class="hidden text-center mb-4">Yükleniyor...</div>
+
+  <div id="errorContainer" class="hidden bg-red-800 text-white p-4 rounded mb-4">
+    <strong>Hata:</strong> <span id="errorMessage"></span>
+  </div>
+
+  <div id="resultContainer" class="terminal hidden">
+    <pre id="resultOutput" class="whitespace-pre-wrap overflow-x-auto"></pre>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

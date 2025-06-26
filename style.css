@@ -1,0 +1,27 @@
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.json-key { color: #E06C75; }
+.json-value { color: #98C379; }
+.json-string { color: #61AFEF; }
+.json-number { color: #D19A66; }
+.json-boolean,
+.json-null { color: #C678DD; }
+
+.bg-primary {
+  background-color: #E06C75;
+}
+.text-primary {
+  color: #E06C75;
+}
