@@ -37,7 +37,7 @@ ipForm.addEventListener('submit', async (e) => {
   const t = translations[currentLang];
   const ip = ipInput.value.trim();
   if (!ip) return showError(t.errorEmpty);
-  if (!/^\d{1,3}(\.\d{1,3}){3}$/.test(ip))
+  if (!/^\d{1,3}(\.\d{1,3}){3}$/.test(ip)) return showError(t.errorInvalid);
 
   errorContainer.classList.add('hidden');
   resultContainer.classList.add('hidden');
@@ -62,7 +62,8 @@ ipForm.addEventListener('submit', async (e) => {
   <span class="json-key">"timezone"</span>: <span class="json-string">"${data.timezone}"</span>,
   <span class="json-key">"asn"</span>: <span class="json-string">"${data.asn}"</span>,
   <span class="json-key">"org"</span>: <span class="json-string">"${data.org}"</span>
-}` : JSON.stringify(data);
+}` : JSON.stringify(data, null, 2);
+
     resultContainer.classList.remove('hidden');
   } catch {
     loadingIndicator.classList.add('hidden');
